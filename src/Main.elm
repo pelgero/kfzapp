@@ -10,9 +10,26 @@ import Html.Events as E
 ---- MODEL ----
 
 
+type Search
+    = Value String
+    | Empty
+
+
+type alias PlateKey =
+    String
+
+
+type alias PlateName =
+    String
+
+
+type alias Plate =
+    ( PlateKey, PlateName )
+
+
 type alias Model =
     { search : Search
-    , plates : List ( String, String )
+    , plates : List Plate
     }
 
 
@@ -40,11 +57,6 @@ init =
 
 
 ---- UPDATE ----
-
-
-type Search
-    = Value String
-    | Empty
 
 
 type Msg
@@ -82,7 +94,7 @@ view model =
         ]
 
 
-firstFound : List ( String, String ) -> Search -> String
+firstFound : List Plate -> Search -> PlateName
 firstFound plates search =
     case search of
         Empty ->

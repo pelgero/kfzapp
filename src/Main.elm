@@ -91,7 +91,7 @@ findPlate search plates =
 
         Value value ->
             plates
-                |> List.filter (\{ key, name, region } -> String.startsWith (String.toUpper value) key)
+                |> List.filter (\{ key, name, region } -> String.toUpper value == key)
                 |> List.head
 
 
@@ -102,7 +102,7 @@ nameOrNotFound plate =
             name
 
         Nothing ->
-            "Not Found"
+            ""
 
 
 

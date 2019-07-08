@@ -10,17 +10,21 @@
 }
 
 body {
-  font-family: 'Source Sans Pro', 'Trebuchet MS', 'Lucida Grande', 'Bitstream Vera Sans', 'Helvetica Neue', sans-serif;
-  margin: 0;
+  font-family: "Source Sans Pro", "Trebuchet MS", "Lucida Grande",
+    "Bitstream Vera Sans", "Helvetica Neue", sans-serif;
+  margin: 0 auto;
   text-align: center;
   color: #293c4b;
 }
 
-h1 {
-  font-size: 30px;
+h2 {
+  font-family: monospace;
 }
 
-img {
-  margin: 20px 0;
-  max-width: 200px;
+input {
+  width: 60px;
+  padding: 10px 4px;
+  margin: 10px auto;
+  font-size: 30px;
+  text-align: center;
 }

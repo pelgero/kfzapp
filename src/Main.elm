@@ -1,7 +1,7 @@
 module Main exposing (Model, Msg(..), init, main, update, view)
 
 import Browser
-import Html exposing (Html, div, form, h1, input, text)
+import Html exposing (Html, div, form, h1, h2, input, text)
 import Html.Attributes as A
 import Html.Events as E
 
@@ -68,11 +68,12 @@ toSearch value =
 view : Model -> Html Msg
 view model =
     div []
-        [ h1 [] [ text "KFZApp" ]
-        , form []
-            [ input [ E.onInput Change ] []
-            ]
-        , div [] [ text (plateString model) ]
+        [ h2 []
+            [ text "KFZAPP" ]
+        , input
+            [ E.onInput Change ]
+            []
+        , div [] [ h1 [] [ text (plateString model) ] ]
         ]
 
 

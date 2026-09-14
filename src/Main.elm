@@ -1,9 +1,10 @@
 module Main exposing (Model, Msg(..), init, main, update, view)
 
 import Browser
-import Html exposing (Html, div, form, h1, input, span, text)
+import Html exposing (Html, a, div, form, h1, input, span, text)
 import Html.Attributes as A
 import Html.Events as E
+import Url
 
 
 
@@ -81,6 +82,7 @@ view model =
         , div []
             [ h1 [] [ text (plateString model) ]
             , div [ A.class "plate-detail" ] [ text (plateDetail model) ]
+            , mapsLink model
             ]
         ]
 
@@ -153,6 +155,22 @@ detailOrEmpty plate =
 
         Nothing ->
             ""
+
+
+mapsLink : Model -> Html Msg
+mapsLink { plates, search } =
+    case findPlate search plates of
+        Just { name } ->
+            a
+                [ A.href ("https://www.google.com/maps/search/?api=1&query=" ++ Url.percentEncode name)
+                , A.target "_blank"
+                , A.rel "noopener"
+                , A.class "maps-link"
+                ]
+                [ text "📍 Show on Google Maps" ]
+
+        Nothing ->
+            text ""
 
 
 

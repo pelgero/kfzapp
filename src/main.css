@@ -85,3 +85,15 @@ h2 {
   font-size: 18px;
   color: #5a6b78;
 }
+
+.maps-link {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 15px;
+  color: #1a73e8;
+  text-decoration: none;
+}
+
+.maps-link:hover {
+  text-decoration: underline;
+}

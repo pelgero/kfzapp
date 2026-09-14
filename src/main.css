@@ -21,10 +21,67 @@ h2 {
   font-family: monospace;
 }
 
-input {
-  width: 60px;
-  padding: 10px 4px;
-  margin: 10px auto;
-  font-size: 30px;
+.plate-input {
+  display: inline-flex;
+  align-items: stretch;
+  margin: 70px auto 10px;
+  background: #fff;
+  border: 3px solid #000;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.eu-band {
+  width: 36px;
+  background: #003399;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4px 0 6px;
+  flex-shrink: 0;
+}
+
+.eu-stars {
+  position: relative;
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+}
+
+.eu-star {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  color: #ffdd00;
+  font-size: 6px;
+  line-height: 1;
+}
+
+.eu-d {
+  color: #fff;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1;
+  margin-top: 2px;
+  font-family: sans-serif;
+}
+
+.plate-input input {
+  width: 105px;
+  border: none;
+  padding: 10px 12px;
+  font-size: 32px;
+  font-weight: 700;
   text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #000;
+  background: #fff;
+  outline: none;
+}
+
+.plate-detail {
+  margin-top: 2px;
+  font-size: 18px;
+  color: #5a6b78;
 }

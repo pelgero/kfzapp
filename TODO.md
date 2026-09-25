@@ -6,22 +6,14 @@ free SSL). URL will be `https://<project>.pages.dev`. A custom domain (e.g. `kfz
 is NOT free — the name itself costs ~€10–15/yr (can be bought via Cloudflare Registrar
 at cost); DNS + hosting + cert stay free.
 
-## Problem to solve first
-`build/` (index.html, elm.js, main.css) is gitignored, so Pages must build from source.
-Before connecting the repo, make the build reproducible from a clean checkout:
+## Build from a clean checkout — DONE (`./build.sh` → `dist/`)
 
-1. Move `build/index.html` to a tracked template, e.g. `assets/index.html`
-   (or generate it in the build script).
-2. Add a build script (e.g. `build.sh` or npm `build`) that runs:
-   ```sh
-   npm install -g elm@0.19.2-0
-   mkdir -p dist
-   elm make src/Main.elm --output=dist/elm.js
-   cp src/main.css dist/main.css
-   cp assets/index.html dist/index.html
-   ```
-   (Elm 0.19.2, see `elm.json`; verify locally with `rm -rf dist && ./build.sh`.)
-3. Commit + push to `master`.
+Reproducible build exists and is verified locally (`rm -rf dist && ./build.sh`):
+`elm make src/Main.elm --optimize --output=dist/elm.js` plus copies of
+`src/main.css`, `assets/index.html`, `assets/manifest.webmanifest`,
+`assets/sw.js` and `assets/icons/`. If `elm` is missing (e.g. on Pages),
+the script fetches the official Elm 0.19.2 Linux binary (not on npm).
+The app is an installable offline-first PWA (plate icons, service worker).
 
 ## Connect Cloudflare Pages
 1. Sign up at https://dash.cloudflare.com (no credit card needed).

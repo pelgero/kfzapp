@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- KFZAPP maskable icon: same plate motif, scaled into the 80% safe zone,
+       full-bleed EU blue background (no rounded corners, no transparency). -->
+  <rect width="512" height="512" fill="#003399"/>
+  <g transform="translate(256 256) scale(0.8) translate(-256 -256)">
+    <rect x="48" y="150" width="416" height="212" rx="30" fill="#ffffff" stroke="#000000" stroke-width="16"/>
+    <clipPath id="plateInner">
+      <rect x="60" y="162" width="392" height="188" rx="20"/>
+    </clipPath>
+    <g clip-path="url(#plateInner)">
+      <rect x="60" y="162" width="88" height="188" fill="#003399"/>
+    </g>
+    <g fill="#ffdd00">
+      <circle cx="130" cy="212" r="5.5"/>
+      <circle cx="126.5" cy="225" r="5.5"/>
+      <circle cx="117" cy="234.5" r="5.5"/>
+      <circle cx="104" cy="238" r="5.5"/>
+      <circle cx="91" cy="234.5" r="5.5"/>
+      <circle cx="81.5" cy="225" r="5.5"/>
+      <circle cx="78" cy="212" r="5.5"/>
+      <circle cx="81.5" cy="199" r="5.5"/>
+      <circle cx="91" cy="189.5" r="5.5"/>
+      <circle cx="104" cy="186" r="5.5"/>
+      <circle cx="117" cy="189.5" r="5.5"/>
+      <circle cx="126.5" cy="199" r="5.5"/>
+    </g>
+    <text x="104" y="316" text-anchor="middle" font-family="Arial, Helvetica, 'DejaVu Sans', sans-serif" font-size="62" font-weight="bold" fill="#ffffff">D</text>
+    <text x="302" y="302" text-anchor="middle" font-family="Arial, Helvetica, 'DejaVu Sans', sans-serif" font-size="130" font-weight="bold" letter-spacing="2" fill="#111111">KFZ</text>
+  </g>
+</svg>

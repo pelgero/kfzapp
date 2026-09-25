@@ -26,11 +26,12 @@ npm install -g elm elm-test
 | Task  | Command                                            |
 |-------|----------------------------------------------------|
 | Test  | `elm-test`                                         |
-| Build | `elm make src/Main.elm --output=build/elm.js`      |
-| Run   | `elm reactor` → http://localhost:8000/src/Main.elm |
+| Build | `./build.sh` (Elm 0.19.2 → `dist/`, incl. PWA manifest, icons, service worker) |
+| Run   | `python3 -m http.server -d dist 8000` → http://localhost:8000 |
 
-The styled version served during development additionally wires in
-`src/main.css` via `build/index.html` (see `TODO.md` for the packaging plan).
+Installable as a progressive web app (see `assets/`): manifest, plate
+icons and an offline-first service worker are copied into `dist/` by the
+build script, so the app works fully offline once installed.
 
 ## Data
 

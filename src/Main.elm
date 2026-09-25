@@ -1,4 +1,4 @@
-module Main exposing (Model, Msg(..), init, main, update, view)
+module Main exposing (Model, Msg(..), Plate, Search(..), findPlate, init, main, plateDetail, plateString, platesData, toSearch, update, view)
 
 import Browser
 import Html exposing (Html, a, div, form, h1, input, span, text)

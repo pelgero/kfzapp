@@ -4,8 +4,34 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <meta name="description" content="Deutsche Kfz-Kennzeichen nachschlagen: Bezirk, Herleitung und Bundesland – auch offline.">
+    <title>KFZAPP – Kfz-Kennzeichen Suche: Autokennzeichen nachschlagen</title>
+    <meta name="description" content="Kfz-Kennzeichen kostenlos nachschlagen: 716 deutsche Autokennzeichen mit Stadt, Landkreis und Bundesland – z. B. B für Berlin, M für München. Auch offline nutzbar.">
+    <meta name="keywords" content="Kfz-Kennzeichen, Autokennzeichen, Nummernschild, Kennzeichen Suche, Kennzeichen nachschlagen, Kennzeichen Bedeutung, Kfz Kürzel, Altkennzeichen">
+    <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#003399">
+    <!--SEO-CANONICAL-->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="KFZAPP">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:title" content="KFZAPP – Kfz-Kennzeichen Suche: Autokennzeichen nachschlagen">
+    <meta property="og:description" content="Kfz-Kennzeichen kostenlos nachschlagen: 716 deutsche Autokennzeichen mit Stadt, Landkreis und Bundesland. Auch offline nutzbar.">
+    <meta property="og:image" content="icons/icon-512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="KFZAPP – Kfz-Kennzeichen Suche">
+    <meta name="twitter:description" content="Deutsche Autokennzeichen nachschlagen: Bezirk, Herleitung und Bundesland – auch offline.">
+    <meta name="twitter:image" content="icons/icon-512.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "KFZAPP – Kennzeichen-Suche",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any",
+      "inLanguage": "de",
+      "description": "Deutsche Kfz-Kennzeichen nachschlagen: Bezirk, Herleitung und Bundesland – auch offline.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+    }
+    </script>
     <link rel="manifest" href="manifest.webmanifest">
     <link rel="icon" href="icons/favicon.ico" sizes="48x48">
     <link rel="icon" type="image/svg+xml" href="icons/icon.svg">
@@ -16,11 +42,21 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="KFZAPP">
     <link rel="stylesheet" href="main.css">
-    <title>KFZAPP – Kennzeichen-Suche</title>
 </head>
 <body>
-    <noscript>KFZAPP benötigt JavaScript.</noscript>
+    <section class="sr-only">
+        <h1>Kfz-Kennzeichen-Suche: deutsches Autokennzeichen nachschlagen</h1>
+        <p>KFZAPP findet zu jedem der 716 deutschen Kfz-Kennzeichen den Zulassungsbezirk,
+        die Herleitung und das Bundesland – zum Beispiel BNA für Borna bei Leipzig in Sachsen.</p>
+    </section>
+    <noscript>
+        <h1>KFZAPP – Kfz-Kennzeichen-Suche</h1>
+        <p>KFZAPP schlägt deutsche Autokennzeichen nach: Gib 1–3 Buchstaben ein und erhalte
+        Zulassungsbezirk, Herleitung und Bundesland – zum Beispiel BNA für Borna (Leipzig, Sachsen).
+        Diese Suche benötigt JavaScript.</p>
+    </noscript>
     <div id="root"></div>
+    <footer class="seo-footer">716 Kfz-Kennzeichen aus ganz Deutschland – kostenlos &amp; offline.</footer>
     <script src="elm.js" defer></script>
     <script>
         window.addEventListener('DOMContentLoaded', function () {
@@ -28,6 +64,14 @@
                 node: document.getElementById('root')
             });
         });
+        // Self-canonical when the build did not bake in an absolute one
+        // (e.g. Cloudflare preview URLs): helps crawlers pick one URL.
+        if (!document.querySelector('link[rel="canonical"]')) {
+            var canonical = document.createElement('link');
+            canonical.rel = 'canonical';
+            canonical.href = location.origin + location.pathname;
+            document.head.appendChild(canonical);
+        }
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function () {
                 navigator.serviceWorker.register('sw.js').catch(function (err) {

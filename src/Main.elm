@@ -76,7 +76,15 @@ view model =
                 , div [ A.class "eu-d" ] [ text "D" ]
                 ]
             , input
-                [ E.onInput Change, A.maxlength 3, A.autofocus True ]
+                [ E.onInput Change
+                , A.maxlength 3
+                , A.autofocus True
+                , A.id "kennzeichen"
+                , A.name "kennzeichen"
+                , A.attribute "aria-label" "Kfz-Kennzeichen eingeben, zum Beispiel BNA"
+                , A.attribute "autocomplete" "off"
+                , A.attribute "autocapitalize" "characters"
+                ]
                 []
             ]
         , div []

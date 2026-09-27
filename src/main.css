@@ -97,3 +97,23 @@ h2 {
 .maps-link:hover {
   text-decoration: underline;
 }
+
+/* Screen-reader-only: crawlable/indexable heading without changing the visual design. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Static footer tagline: crawlable copy, visually subtle. */
+.seo-footer {
+  margin: 18px auto 24px;
+  font-size: 13px;
+  color: #8a99a5;
+}

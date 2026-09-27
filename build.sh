@@ -8,7 +8,7 @@ cd "$(dirname "$0")"
 # if it is not already installed.
 if ! command -v elm >/dev/null 2>&1; then
   echo "elm not found, downloading Elm 0.19.2..."
-  curl -L -o /tmp/elm.gz https://github.com/elm/compiler/releases/download/0.19.2/binary-for-linux-64-bit.gz
+  curl -fL -o /tmp/elm.gz https://github.com/elm/compiler/releases/download/0.19.2/elm-0.19.2-linux-x64.gz
   gunzip -f /tmp/elm.gz
   chmod +x /tmp/elm
   ELM=/tmp/elm

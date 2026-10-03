@@ -1,7 +1,7 @@
 module Main exposing (Model, Msg(..), Plate, Search(..), findPlate, init, main, plateDetail, plateString, platesData, toSearch, update, view)
 
 import Browser
-import Html exposing (Html, a, div, form, h1, input, span, text)
+import Html exposing (Html, a, div, form, h1, header, input, main_, span, text)
 import Html.Attributes as A
 import Html.Events as E
 import Url
@@ -69,28 +69,37 @@ toSearch value =
 
 view : Model -> Html Msg
 view model =
-    div []
-        [ div [ A.class "plate-input" ]
-            [ div [ A.class "eu-band" ]
-                [ div [ A.class "eu-stars" ] (List.map euStar (List.range 0 11))
-                , div [ A.class "eu-d" ] [ text "D" ]
-                ]
-            , input
-                [ E.onInput Change
-                , A.maxlength 3
-                , A.autofocus True
-                , A.id "kennzeichen"
-                , A.name "kennzeichen"
-                , A.attribute "aria-label" "Kfz-Kennzeichen eingeben, zum Beispiel BNA"
-                , A.attribute "autocomplete" "off"
-                , A.attribute "autocapitalize" "characters"
-                ]
-                []
+    div [ A.class "app" ]
+        [ header [ A.class "app-header" ]
+            [ h1 [ A.class "app-title" ] [ text "KFZ-Kennzeichen Suche" ]
             ]
-        , div []
-            [ h1 [] [ text (plateString model) ]
-            , div [ A.class "plate-detail" ] [ text (plateDetail model) ]
-            , mapsLink model
+        , main_ [ A.class "app-main" ]
+            [ div [ A.class "plate-input" ]
+                [ div [ A.class "eu-band" ]
+                    [ div [ A.class "eu-stars" ] (List.map euStar (List.range 0 11))
+                    , div [ A.class "eu-d" ] [ text "D" ]
+                    ]
+                , input
+                    [ E.onInput Change
+                    , A.maxlength 3
+                    , A.autofocus True
+                    , A.id "kennzeichen"
+                    , A.name "kennzeichen"
+                    , A.attribute "aria-label" "Kfz-Kennzeichen eingeben, zum Beispiel BNA"
+                    , A.attribute "autocomplete" "off"
+                    , A.attribute "autocapitalize" "characters"
+                    ]
+                    []
+                ]
+            , div [ A.class "plate-result" ]
+                [ div
+                    [ A.class "result-name"
+                    , A.attribute "aria-live" "polite"
+                    ]
+                    [ text (plateString model) ]
+                , div [ A.class "plate-detail" ] [ text (plateDetail model) ]
+                , mapsLink model
+                ]
             ]
         ]
 
